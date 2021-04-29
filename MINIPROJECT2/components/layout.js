@@ -12,26 +12,17 @@ const Layout = (props) => {
           className={styles.mainmenu}
           onClick={() => {
             router.push("/");
-          }}
-        >
-          HOMEPAGES
-        </button>
+          }}>HOMEPAGES</button>
         <button
           className={styles.mainmenu}
           onClick={() => {
             router.push("/shop");
-          }}
-        >
-          GUN
-        </button>
+          }}>GUN</button>
         <button
           className={styles.mainmenu}
           onClick={() => {
             router.push("/login");
-          }}
-        >
-          LOGIN
-        </button>
+          }}>LOGIN</button>
         <button
           className={styles.mainmenu}
           onClick={() => {
@@ -45,10 +36,7 @@ const Layout = (props) => {
               .catch((error) => {
                 console.log(error);
               });
-          }}
-        >
-          LOGOUT
-        </button>
+          }}>LOGOUT</button>
       </div>
     );
   };

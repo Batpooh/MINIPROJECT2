@@ -71,10 +71,7 @@ const Shop = ({ token }) => {
                     <p className={styles.productName}>{item.price}$</p>
                     <button
                       onClick={() => addtocart(item)}
-                      className={styles.addCartButton}
-                    >
-                      ADD GUN TO CART
-                    </button>
+                      className={styles.addCartButton}>ADD GUN TO CART</button>
                   </div>
                 </div>
               );

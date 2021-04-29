@@ -30,39 +30,36 @@ export default function Register({ token }) {
   };
   return (
     <Layout>
-      <p style={{ marginLeft: "10px" }} className={styles.title}>
-        REGISTER
-      </p>
+      <p style={{ marginLeft: "10px" }} className={styles.textTitle}>REGISTER</p>
       <div className="column">
         <input
           onChange={(e) => setUsername(e.target.value)}
           className={styles.input}
-          placeholder="USERNAME"
-        ></input>
+          placeholder="USERNAME">
+            
+          </input>
         <input
           type="password"
           onChange={(e) => setPassword(e.target.value)}
           className={styles.input}
-          placeholder="PASSWORD"
-        ></input>
+          placeholder="PASSWORD">
+          </input>
         <input
           onChange={(e) => setEmail(e.target.value)}
           className={styles.input}
-          placeholder="E-MAIL"
-        ></input>
+          placeholder="E-MAIL">  
+          </input>
         <input
           onChange={(e) => setName(e.target.value)}
           className={styles.input}
-          placeholder="NAME"
-        ></input>
+          placeholder="NAME">
+          </input>
         <input
           onChange={(e) => setTelephone(e.target.value)}
           className={styles.input}
-          placeholder="PHONE NUNBER"
-        ></input>
-        <button onClick={() => register() } className={styles.button}>
-          REGISTER
-        </button>
+          placeholder="PHONE NUNBER">
+          </input>
+        <button onClick={() => register() } className={styles.loginButton}>REGISTER</button>
       </div>
     </Layout>
   );

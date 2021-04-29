@@ -15,7 +15,7 @@
 }
 
 .code {
-  background: #000000;
+  background: rgb(0, 0, 0);
   border-radius: 5px;
   padding: 0.75rem;
   font-size: 1.1rem;
@@ -48,6 +48,12 @@
   cursor: pointer;
   background-color: rgb(255, 255, 255);
 }
+
+.mainmenu:hover {
+  background-color: #00e1ff;
+  transform: translateY(4px);
+}
+
 
 
 
@@ -87,30 +93,15 @@
   font-size: 2rem;
   font-weight: 200;
   letter-spacing: 6px;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
   font-family: Arial, Helvetica, sans-serif;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   cursor: pointer;
 }
 
 .indexButton:hover {
-  padding: 0px 20px 0px 20px;
-  animation: expandbutton;
-  animation-duration: 3s;
+  background-color: #eeff00;
+  transform: translateY(4px);
 }
 
-@keyframes expandbutton {
-  0% {
-    padding: 0px 20px 0px 20px;
-  }
-  50% {
-    padding: 0px 40px 0px 40px;
-  }
-}
-
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
-}
+ 

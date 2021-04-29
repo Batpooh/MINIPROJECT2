@@ -72,12 +72,6 @@ const Cart = ({ token }) => {
       <div>
         <p className={styles.carttitle}>WEAPON CART</p>
         <div className="centers">
-          <button className={styles.showButton} onClick={() => getData()}>
-            SHOW GUN LIST
-          </button>
-        </div>
-
-        <div className="centers">
           <table className={styles.table}>
             <thead>
               <tr className={styles.tableHeader}>
@@ -96,9 +90,9 @@ const Cart = ({ token }) => {
                       <td>{item.productName}</td>
                       <th>
                         <div style={{display: 'flex', justifyContent: 'center', gap: 6}}>
-                          <button onClick={() => changeQuantity(item, 'add')}>+</button>
+                          <button className={styles.addButton} onClick={() => changeQuantity(item, 'add')}>+</button>
                         <span>{item.quantity}</span>
-                        <button onClick={() => changeQuantity(item, 'delete')}>-</button>
+                        <button className={styles.deleteButton} onClick={() => changeQuantity(item, 'delete')}>-</button>
                         </div>
                         </th>
 
@@ -108,10 +102,7 @@ const Cart = ({ token }) => {
                       <th>
                         <button
                           onClick={() => deleteProduct(item.productName)}
-                          className={styles.deleteButton}
-                        >
-                          DELETE
-                        </button>
+                          className={styles.deleteButton}>DELETE</button>
                       </th>
                     </tr>
                   );
@@ -126,10 +117,7 @@ const Cart = ({ token }) => {
             className={styles.showButton}
             onClick={() => {
               setConfirm("Order Confirm");
-            }}
-          >
-            CONFIRM
-          </button>
+            }}>CONFIRM</button>
         </div>
         <div className="centers">
           <p className="rows">{confirm}</p>

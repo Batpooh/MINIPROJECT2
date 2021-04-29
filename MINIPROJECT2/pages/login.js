@@ -15,43 +15,34 @@ export default function Login({ token }) {
     if (token == "") {
       return (
         <div>
-          <p className={styles.title}>LOGIN HERE</p>
+          <p className={styles.textTitle}>LOGIN HERE</p>
           <div
             style={{ marginBottom: "10px", marginTop: "30px" }}
-            className="rows"
-          >
-            <p>RESGISTER HERE =></p>
-            <button
-              onClick={() => {
+            className="rows">
+            <p className={styles.textTitle}>RESGISTER HERE => </p>
+            <button onClick={() => {
                 router.push("/register");
               }}
-              className={styles.registerButton}
-            >
-              REGISTER
-            </button>
+              className={styles.registerButton}> REGISTER </button>
           </div>
           <div className="column">
             <input
               onChange={(e) => setUsername(e.target.value)}
               className={styles.input}
-              placeholder="Username"
-            ></input>
+              placeholder="Username"></input>
             <input
               type="password"
               onChange={(e) => setPassword(e.target.value)}
               className={styles.input}
-              placeholder="Password"
-            ></input>
-            <button onClick={() => login()} className={styles.button}>
-              LOGIN
-            </button>
+              placeholder="Password"></input>
+            <button onClick={() => login()} className={styles.loginButton}> LOGIN </button>
           </div>
         </div>
       );
     } else {
       return (
         <div className="rows">
-          <p className={styles.title}>LOGIN SUCESS</p>
+          <p className={styles.title}>YOU ARE LOGIN NOW!!!</p>
         </div>
       );
     }
