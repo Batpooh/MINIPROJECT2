@@ -11,7 +11,7 @@ export default function Home() {
     <Layout>
       <div className={styles.homepage}>
         <p className={styles.indexTitle}>WELCOME TO GUN STORE</p>
-        <p className={styles.subtitle}>NEW ARIVAL</p>
+        <p className={styles.subtitle}>NEW GUN HAS ARIVED</p>
         <button className={styles.indexButton} onClick={() => {
             router.push("/shop");
           }}>GUN LIST</button>

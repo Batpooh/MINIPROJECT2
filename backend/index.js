@@ -59,7 +59,7 @@ router.get("/logout", (req, res) => {
     })
   );
   res.statusCode = 200;
-  return res.json({ message: "Logout successful" });
+  return res.json({ message: "Logout Success" });
 });
 
 /* GET user profile. */
@@ -76,18 +76,18 @@ router.post("/register", async (req, res) => {
     const SALT_ROUND = 10;
     const { username, email, password, name, telephone } = req.body;
     if (!username || !email || !password || !name || !telephone)
-      return res.json({ message: "Cannot register with empty string" });
+      return res.json({ message: "Can't Register By Empty String" });
     if (db.checkExistingUser(username) !== db.NOT_FOUND)
-      return res.json({ message: "Duplicated user" });
+      return res.json({ message: "Duplicated User" });
 
     let id = users.users.length
       ? users.users[users.users.length - 1].id + 1
       : 1;
     hash = await bcrypt.hash(password, SALT_ROUND);
     users.users.push({ id, username, password: hash, email, name, telephone });
-    res.status(200).json({ message: "Register success" });
+    res.status(200).json({ message: "Register Success" });
   } catch {
-    res.status(422).json({ message: "Cannot register" });
+    res.status(422).json({ message: "Can't Register" });
   }
 });
 
@@ -96,9 +96,9 @@ router.get("/cart", (req, res) => {
     console.log(req.headers.search);
     let carts = cart.cart.filter((item) => item.userid == req.headers.search);
     console.log(carts);
-    res.status(200).json({ message: "Get cart success", data: carts });
+    res.status(200).json({ message: "Get To Cart Success", data: carts });
   } catch {
-    res.status(422).json({ message: "Cannot get cart" });
+    res.status(422).json({ message: "Can't Get to Cart" });
   }
 });
 
@@ -117,9 +117,9 @@ router.get("/deleteProduct", async (req, res) => {
       cart.cart[inx].products.splice(idx, 1);
     }
     console.log("inx", inx);
-    res.status(200).json({ message: "Delete success" });
+    res.status(200).json({ message: "Delete Success" });
   } catch {
-    res.status(422).json({ message: "Cannot delete" });
+    res.status(422).json({ message: "Cannot Delete" });
   }
 });
 
@@ -164,16 +164,16 @@ router.post("/addtocart", async (req, res) => {
         }
       });
     }
-    res.status(200).json({ message: "Add to cart success" });
+    res.status(200).json({ message: "Add To Cart Success" });
   } catch {
-    res.status(422).json({ message: "Cannot add to cart" });
+    res.status(422).json({ message: "Cannot Add To Cart" });
   }
 });
 
 router.get("/alluser", (req, res) => res.json(db.users.users));
 
 router.get("/", (req, res, next) => {
-  res.send("Respond without authentication");
+  res.send("Respond Without Authentication");
 });
 
 // Error Handler
@@ -189,4 +189,4 @@ app.use((err, req, res, next) => {
 });
 
 // Start Server
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+app.listen(port, () => console.log(`Server Is Running On Port ${port}`));

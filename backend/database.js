@@ -4,10 +4,10 @@ let users = {
   users: [
     {
       id: 1,
-      username: "POOH",
-      password: "ADMIN",
-      email: "pooh@gmail.com",
-      name: "DEV",
+      username: "admin",
+      password: "admin",
+      email: "admin@gmail.com",
+      name: "admin",
       telephone: "123456789",
     },
   ],

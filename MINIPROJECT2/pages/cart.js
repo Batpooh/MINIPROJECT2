@@ -5,32 +5,31 @@ import axios from "axios";
 import config from "../config/config";
 import { useRouter } from "next/router";
 import CheckRouter from "../components/checkrouter";
-
+import _ from 'lodash'
 const Cart = ({ token }) => {
   const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [productList, setProductList] = useState([]);
+  console.log('productList', productList)
   const [confirm, setConfirm] = useState("");
   const [userid, setUserid] = useState("");
+  const [changed, setChangd] = useState(new Date())
 
   useEffect(async () => {
     setUserid(localStorage.getItem("userid"));
-    // console.log("userid", userid);
-  });
-
-  const getData = () => {
+    getData(localStorage.getItem("userid"))
+    },[]);
+  const getData = (id) => {
     axios
       .get(`${config.URL}/cart`, {
         headers: {
-          search: userid,
+          search: id || userid,
         },
       })
       .then((res) => {
-        // console.log(res);
         let resdata = res.data.data[0];
         setProductList(resdata.products);
-        // console.log("productList", productList);
       })
       .catch((error) => {
         console.log(error);
@@ -45,32 +44,47 @@ const Cart = ({ token }) => {
         },
       })
       .then((res) => {
-        // console.log(res);
         getData();
       })
       .catch((error) => {
         console.log(error);
       });
   };
-
+  const changeQuantity = (item, operation) => {
+    const allProduct = productList
+    const index = _.indexOf(allProduct, _.find(allProduct, ['productName', item.productName]))
+    let quantity = item.quantity
+    if(operation==='add'){
+      quantity+=1
+    }
+    else{
+      quantity-=1
+    }
+    allProduct.splice(index, 1, {
+      ...allProduct[index],
+      quantity: quantity
+    })
+    setProductList(allProduct)
+    setChangd(new Date())
+  }
   return (
     <Layout>
       <div>
         <p className={styles.carttitle}>WEAPON CART</p>
         <div className="centers">
           <button className={styles.showButton} onClick={() => getData()}>
-            GUN LIST
+            SHOW GUN LIST
           </button>
         </div>
 
         <div className="centers">
-          {console.log("productList1", productList)}
           <table className={styles.table}>
             <thead>
               <tr className={styles.tableHeader}>
                 <td>NAME</td>
                 <th>QUANTITY</th>
                 <th>PRICE</th>
+                <th>TOTAL</th>
                 <th>CHANGE</th>
               </tr>
             </thead>
@@ -80,8 +94,17 @@ const Cart = ({ token }) => {
                   return (
                     <tr key={item.productName}>
                       <td>{item.productName}</td>
-                      <th>{item.quantity}</th>
+                      <th>
+                        <div style={{display: 'flex', justifyContent: 'center', gap: 6}}>
+                          <button onClick={() => changeQuantity(item, 'add')}>+</button>
+                        <span>{item.quantity}</span>
+                        <button onClick={() => changeQuantity(item, 'delete')}>-</button>
+                        </div>
+                        </th>
+
                       <th>{item.price}</th>
+                      <th>{item.price*item.quantity}</th>
+
                       <th>
                         <button
                           onClick={() => deleteProduct(item.productName)}

@@ -11,18 +11,16 @@ export default function Login({ token }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  //  console.log("token : ", token);
-
   const isLogin = () => {
     if (token == "") {
       return (
         <div>
-          <p className={styles.title}>LOGIN</p>
+          <p className={styles.title}>LOGIN HERE</p>
           <div
-            style={{ marginBottom: "10px", marginTop: "-30px" }}
+            style={{ marginBottom: "10px", marginTop: "30px" }}
             className="rows"
           >
-            <p>RESGISTER HERE</p>
+            <p>RESGISTER HERE =></p>
             <button
               onClick={() => {
                 router.push("/register");

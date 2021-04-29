@@ -6,10 +6,9 @@
     align-items: center;
   }
   .contact_page{
-    border: 3px solid black;
+    border: 3px solid rgb(0, 0, 0);
     padding: 15px 60px;
     border-radius: 10px;
-    background-color: white;
   }
   .contact_text{
     text-align: center;

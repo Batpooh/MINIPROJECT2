@@ -22,7 +22,7 @@ const Layout = (props) => {
             router.push("/shop");
           }}
         >
-          PRODUCT
+          GUN
         </button>
         <button
           className={styles.mainmenu}
@@ -57,7 +57,7 @@ const Layout = (props) => {
       <Head>
         <title>BLACK SHOP</title>
       </Head>
-      <main className={styles.main}>
+      <main className={styles.main} style={{backgroundImage: "url(image/camo.png)"}}>
         <div className="row-justify-between">
           <div className="rows">
             <img className={styles.logo} src={"image/icon.jpg"}></img>

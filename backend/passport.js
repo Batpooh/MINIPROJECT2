@@ -20,10 +20,10 @@ passport.use(
             const { id, username, email } = users.users[index]
             return cb(null,
                 { id, username, email },
-                { message: 'Logged In Successfully' })
+                { message: 'Log In Successfull' })
         }
         else
-            return cb(null, false, { message: 'Incorrect user or password.' })
+            return cb(null, false, { message: 'Incorrect Userid Or Password.' })
 
 
     }));
