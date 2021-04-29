@@ -1,0 +1,124 @@
+.cart {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+}
+
+.cartIcon {
+  width: 5vw;
+  cursor: pointer;
+}
+
+.testHeight {
+  height: 150vh;
+}
+
+.carttitle {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.tableHeader {
+  background-color: #000000;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.table {
+  width: 60vw;
+}
+
+.productBox {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 10vh;
+}
+
+.productList {
+  width: 80vw;
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.productImage {
+  width: 15vw;
+  height: 15vw;
+  margin: 3vw 2.5vw 0vw 2.5vw;
+  object-fit: cover;
+  box-shadow: 2px 2px 6px #000000;
+}
+
+.productDetial {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
+}
+
+.productName {
+  margin: 0px;
+  font-size: 1.4rem;
+}
+
+.addCartButton {
+  border: none;
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+  padding: 0.5vw 2vw 0.5vw 2vw;
+  font-family: "Athiti", sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.addCartButton:hover {
+  animation: expandbutton;
+  animation-duration: 1s;
+}
+.showButton {
+  margin-top: -30px;
+  margin-bottom: 30px;
+  border: none;
+  background-color: #000;
+  color: rgb(255, 255, 255);
+  padding: 0.3vw 2vw 0.3vw 2vw;
+  font-family: "Athiti", sans-serif;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.quantityButton {
+  margin-left: 0.5vw;
+  color: #000000;
+  width: 1.2vw;
+  height: 1.2vw;
+  border: none;
+  border-radius: 50%;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.deleteButton {
+  font-family: "Athiti", sans-serif;
+  margin-left: 0.5vw;
+}
+
+@keyframes expandbutton {
+  0% {
+    padding: 0.5vw 2vw 0.5vw 2vw;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+  }
+  50% {
+    padding: 0.5vw 3vw 0.5vw 3vw;
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+  }
+}
